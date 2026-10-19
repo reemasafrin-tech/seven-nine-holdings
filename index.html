@@ -1,399 +1,559 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sevennine Holdings | Global Industrial Supply</title>
+<meta name="description" content="Sevennine Holdings specializes in electrical, industrial and manufacturing products for worldwide business requirements.">
 
-  <title>Sevennine Holdings | Industrial & Electrical Solutions</title>
-  <meta name="description" content="Sevennine Holdings provides industrial, electrical and manufacturing product sourcing solutions. Contact our team for enquiries.">
-  <meta name="theme-color" content="#101c30">
+<style>
+:root {
+  --navy: #102238;
+  --navy2: #183650;
+  --gold: #c6a568;
+  --cream: #f7f6f2;
+  --white: #fff;
+  --text: #283747;
+  --muted: #687786;
+  --border: #e5e8ec;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  line-height: 1.7;
+  background: white;
+}
+a { text-decoration: none; color: inherit; }
+img { display: block; width: 100%; object-fit: cover; }
+.container { width: min(1160px, 90%); margin: auto; }
 
-  <style>
-    :root {
-      --navy: #101c30;
-      --navy-light: #203b59;
-      --gold: #c8a96b;
-      --white: #ffffff;
-      --light: #f5f7fa;
-      --text: #263449;
-      --muted: #64748b;
-    }
+/* NAVIGATION */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.97);
+  border-bottom: 1px solid var(--border);
+}
+nav {
+  min-height: 82px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+.brand {
+  font-size: 23px;
+  font-weight: 750;
+  letter-spacing: -.6px;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.brand span { color: #a8864e; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.nav-links a { transition: color .2s; }
+.nav-links a:hover { color: #a8864e; }
+.nav-links .nav-cta {
+  background: var(--navy);
+  color: white;
+  padding: 11px 18px;
+  border-radius: 3px;
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 23px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: .2s;
+}
+.btn:hover { background: #d7bb85; border-color: #d7bb85; }
+.btn-dark { background: var(--navy); color: white; border-color: var(--navy); }
+.btn-dark:hover { background: var(--navy2); }
 
-    html { scroll-behavior: smooth; }
+/* HERO */
+.hero {
+  position: relative;
+  color: white;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  background: var(--navy);
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(10,25,42,.96) 0%, rgba(10,25,42,.83) 48%, rgba(10,25,42,.35) 100%),
+    url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=85")
+    center/cover no-repeat;
+}
+.hero-content { position: relative; z-index: 1; padding: 95px 0; }
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: 750;
+}
+.hero h1 {
+  font-size: clamp(39px, 5.4vw, 68px);
+  line-height: 1.12;
+  letter-spacing: -1.7px;
+  max-width: 800px;
+  margin: 23px 0;
+}
+.hero p {
+  max-width: 690px;
+  font-size: 17px;
+  color: #e0e7ee;
+  line-height: 1.9;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+.btn-outline { color: white; background: transparent; border-color: #aeb9c6; }
+.btn-outline:hover { background: white; color: var(--navy); }
+.hero-note { margin-top: 42px; font-size: 12px; letter-spacing: 1.5px; color: #c5ced8; text-transform: uppercase; }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      line-height: 1.7;
-    }
+/* GENERAL SECTIONS */
+section { padding: 94px 0; }
+.section-heading { max-width: 740px; margin-bottom: 42px; }
+.section-heading h2, .about-copy h2, .contact-copy h2 {
+  color: var(--navy);
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.2;
+  letter-spacing: -.8px;
+  margin: 13px 0 18px;
+}
+.section-heading p, .about-copy p { color: var(--muted); }
+.center { text-align: center; margin-left: auto; margin-right: auto; }
 
-    a { color: inherit; text-decoration: none; }
+/* ABOUT */
+.about { background: var(--cream); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+.about-image {
+  position: relative;
+  min-height: 420px;
+  background: #dce2e6;
+  overflow: hidden;
+}
+.about-image img { height: 420px; }
+.image-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  padding: 17px 20px;
+  background: rgba(16,34,56,.92);
+  color: white;
+  font-size: 14px;
+}
+.about-copy h2 { margin-bottom: 22px; }
+.about-copy p { margin-bottom: 16px; }
+.about-copy .btn { margin-top: 12px; }
 
-    .container {
-      width: min(1120px, 90%);
-      margin: auto;
-    }
+/* SERVICES */
+.services { background: white; }
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.service-card {
+  border: 1px solid var(--border);
+  background: white;
+  transition: transform .25s, box-shadow .25s;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 36px rgba(16,34,56,.1);
+}
+.service-image { height: 235px; background: #e4e8ec; overflow: hidden; }
+.service-image img { height: 100%; transition: transform .4s; }
+.service-card:hover .service-image img { transform: scale(1.04); }
+.service-content { padding: 27px 25px 30px; }
+.service-number {
+  color: #a8864e;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+.service-content h3 { color: var(--navy); font-size: 21px; margin: 10px 0; }
+.service-content p { color: var(--muted); font-size: 14px; }
+.service-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 750;
+}
+.service-link span { color: #a8864e; }
 
-    header {
-      background: white;
-      border-bottom: 1px solid #e8ebf0;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+/* GLOBAL APPROACH */
+.approach {
+  color: white;
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+.approach::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(16,34,56,.97), rgba(16,34,56,.82)),
+    url("https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=1800&q=85")
+    center/cover no-repeat;
+}
+.approach .container { position: relative; }
+.approach h2 { color: white; font-size: clamp(30px, 4vw, 44px); line-height: 1.2; margin: 14px 0 20px; }
+.approach p { max-width: 760px; color: #d8e0e9; }
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 48px;
+}
+.approach-item { border-top: 1px solid rgba(255,255,255,.28); padding-top: 20px; }
+.approach-item strong { color: var(--gold); display: block; font-size: 13px; letter-spacing: 1px; margin-bottom: 8px; }
+.approach-item span { color: #e0e6ed; font-size: 14px; }
 
-    nav {
-      min-height: 78px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
+/* CONTACT */
+.contact { background: var(--cream); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 65px;
+  align-items: start;
+}
+.contact-copy h2 { margin-top: 14px; }
+.contact-copy > p { color: var(--muted); }
+.contact-points { margin-top: 32px; display: grid; gap: 19px; }
+.contact-point { display: flex; gap: 14px; align-items: flex-start; }
+.contact-icon {
+  width: 43px; height: 43px; flex-shrink: 0;
+  display: grid; place-items: center;
+  background: white; color: #a8864e;
+  border: 1px solid var(--border); font-size: 19px;
+}
+.contact-point strong { display: block; color: var(--navy); font-size: 14px; }
+.contact-point span { color: var(--muted); font-size: 13px; }
+.form-card {
+  background: white;
+  padding: 36px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 35px rgba(16,34,56,.05);
+}
+.form-card h3 { color: var(--navy); font-size: 25px; margin-bottom: 5px; }
+.form-card .form-intro { color: var(--muted); font-size: 13px; margin-bottom: 25px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.field { display: flex; flex-direction: column; gap: 7px; }
+.field.full { grid-column: 1 / -1; }
+label { color: var(--navy); font-size: 12px; font-weight: 750; }
+input, select, textarea {
+  width: 100%;
+  border: 1px solid #d8dee5;
+  border-radius: 3px;
+  padding: 13px 14px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--text);
+  background: white;
+}
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid rgba(198,165,104,.3);
+  border-color: var(--gold);
+}
+textarea { min-height: 135px; resize: vertical; }
+.form-card .btn { width: 100%; margin-top: 22px; }
+.form-small { font-size: 11px; color: var(--muted); margin-top: 13px; }
 
-    .brand {
-      color: var(--navy);
-      font-size: 21px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
+/* FOOTER */
+footer { background: #0b1726; color: #c4ced9; padding: 28px 0; font-size: 12px; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; }
+.footer-brand { color: white; font-size: 17px; font-weight: 750; }
+.footer-brand span { color: var(--gold); }
+footer a:hover { color: var(--gold); }
 
-    .brand span { color: #a7803e; }
-
-    .nav-links {
-      display: flex;
-      gap: 26px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover { color: #a7803e; }
-
-    .hero {
-      color: white;
-      padding: 115px 0;
-      background:
-        linear-gradient(90deg, rgba(16,28,48,.96), rgba(16,28,48,.68)),
-        url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=85")
-        center/cover no-repeat;
-    }
-
-    .eyebrow {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    h1 {
-      font-size: clamp(38px, 6vw, 68px);
-      line-height: 1.12;
-      margin: 22px 0;
-      max-width: 790px;
-    }
-
-    .hero p {
-      max-width: 660px;
-      color: #e0e7f0;
-      font-size: 18px;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 28px;
-      padding: 13px 24px;
-      background: var(--gold);
-      color: var(--navy);
-      font-weight: bold;
-      border-radius: 3px;
-      transition: .2s;
-    }
-
-    .btn:hover { background: white; }
-
-    section { padding: 78px 0; }
-
-    .section-label {
-      color: #a7803e;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    h2 {
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.25;
-      margin: 12px 0 20px;
-      color: var(--navy);
-    }
-
-    .intro {
-      max-width: 740px;
-      color: var(--muted);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 45px;
-      align-items: center;
-    }
-
-    .about-image {
-      min-height: 340px;
-      border-radius: 5px;
-      background:
-        url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1000&q=85")
-        center/cover no-repeat;
-    }
-
-    .services { background: var(--light); }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 36px;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid #e6eaf0;
-      padding: 28px;
-      border-radius: 4px;
-    }
-
-    .card-number {
-      color: #a7803e;
-      font-weight: bold;
-      font-size: 12px;
-      letter-spacing: 1px;
-    }
-
-    .card h3 {
-      color: var(--navy);
-      font-size: 20px;
-      margin: 12px 0;
-    }
-
-    .card p { color: var(--muted); font-size: 15px; }
-
-    .global {
-      background:
-        linear-gradient(rgba(16,28,48,.88), rgba(16,28,48,.88)),
-        url("https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=1800&q=85")
-        center/cover no-repeat;
-      color: white;
-      text-align: center;
-    }
-
-    .global h2 { color: white; }
-
-    .global p {
-      color: #e0e7f0;
-      max-width: 720px;
-      margin: auto;
-    }
-
-    .contact {
-      background: var(--navy);
-      color: white;
-      text-align: center;
-    }
-
-    .contact h2 { color: white; }
-
-    .contact p {
-      color: #d9e1ec;
-      max-width: 650px;
-      margin: auto;
-    }
-
-    .email {
-      display: inline-block;
-      color: var(--gold);
-      margin-top: 18px;
-      font-weight: bold;
-      overflow-wrap: anywhere;
-    }
-
-    footer {
-      background: #0b1422;
-      color: #bdc6d3;
-      padding: 24px 0;
-      font-size: 13px;
-    }
-
-    footer .container {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 700px) {
-      nav { flex-wrap: wrap; padding: 16px 0; }
-      .brand { font-size: 18px; }
-      .nav-links { gap: 16px; font-size: 12px; }
-      .hero { padding: 78px 0; }
-      .cards, .about-grid { grid-template-columns: 1fr; }
-      section { padding: 58px 0; }
-      .about-image { min-height: 240px; }
-    }
-  </style>
+/* RESPONSIVE */
+@media (max-width: 850px) {
+  nav { padding: 15px 0; flex-wrap: wrap; }
+  .nav-links { gap: 16px; flex-wrap: wrap; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 35px; }
+  .service-grid { grid-template-columns: 1fr 1fr; }
+  .about-image, .about-image img { min-height: 320px; height: 320px; }
+}
+@media (max-width: 580px) {
+  .container { width: 91%; }
+  nav { align-items: flex-start; }
+  .brand { font-size: 20px; }
+  .nav-links { width: 100%; gap: 14px; font-size: 12px; }
+  .nav-links .nav-cta { padding: 7px 10px; }
+  .hero { min-height: 550px; }
+  .hero-content { padding: 75px 0; }
+  .hero h1 { letter-spacing: -.7px; }
+  .hero p { font-size: 15px; }
+  section { padding: 65px 0; }
+  .service-grid, .approach-grid, .form-grid { grid-template-columns: 1fr; }
+  .field.full { grid-column: auto; }
+  .service-image { height: 220px; }
+  .form-card { padding: 23px; }
+  .about-image, .about-image img { min-height: 260px; height: 260px; }
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <nav class="container">
-      <a class="brand" href="#home">SEVENNINE<span>HOLDINGS</span></a>
-
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#global">Our Approach</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="container">
-        <div class="eyebrow">Industrial • Electrical • Manufacturing</div>
-
-        <h1>Your Partner for Industrial and Electrical Supply Solutions</h1>
-
-        <p>
-          Connecting business requirements with industrial products,
-          electrical supplies and sourcing solutions through a
-          customer-focused approach.
-        </p>
-
-        <a class="btn" href="#contact">Contact Our Team &rarr;</a>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container about-grid">
-        <div>
-          <div class="section-label">About Us</div>
-
-          <h2>Building dependable business connections.</h2>
-
-          <p class="intro">
-            Sevennine Holdings focuses on industrial, electrical and
-            manufacturing supply requirements. Our approach centres
-            on understanding customer needs, supporting product
-            sourcing and developing reliable business relationships.
-          </p>
-
-          <a class="btn" href="#services">Explore Our Services</a>
-        </div>
-
-        <div class="about-image"
-             role="img"
-             aria-label="Industrial engineering and equipment">
-        </div>
-      </div>
-    </section>
-
-    <section class="services" id="services">
-      <div class="container">
-        <div class="section-label">Our Services</div>
-
-        <h2>Solutions for Your Business Needs</h2>
-
-        <p class="intro">
-          Explore our core areas of focus. Contact us to discuss
-          your particular product requirements and availability.
-        </p>
-
-        <div class="cards">
-          <article class="card">
-            <div class="card-number">01 / ELECTRICAL</div>
-            <h3>Electrical Products</h3>
-            <p>
-              Sourcing support for electrical products and
-              related business applications.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-number">02 / INDUSTRIAL</div>
-            <h3>Industrial Supplies</h3>
-            <p>
-              Supply solutions for industrial requirements
-              and operational needs.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-number">03 / MANUFACTURING</div>
-            <h3>Manufacturing Solutions</h3>
-            <p>
-              Product sourcing support for manufacturing
-              and related applications.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="global" id="global">
-      <div class="container">
-        <div class="eyebrow">Our Approach</div>
-
-        <h2>Focused on Your Requirements</h2>
-
-        <p>
-          We aim to simplify the sourcing process through
-          responsive communication, suitable product options
-          and customer-oriented support. Contact our team to
-          discuss sourcing and delivery requirements.
-        </p>
-
-        <a class="btn" href="mailto:sale@sevennineholdings.com">
-          Send an Enquiry &rarr;
-        </a>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="eyebrow">Get in Touch</div>
-
-        <h2>Let's Discuss Your Requirements</h2>
-
-        <p>
-          Looking for industrial or electrical products?
-          Contact Sevennine Holdings to discuss your business needs.
-        </p>
-        <br>
-
-        <a class="btn" href="mailto:sale@sevennineholdings.com">
-          Contact Our Team &rarr;
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <span>&copy; <span id="year"></span> Sevennineholdings</span>
-      <a href="https://sevennineholdings.com">
-        sevennineholdings.com
-      </a>
-      <span>All rights reserved.</span>
+<header>
+  <nav class="container">
+    <a class="brand" href="#home">Sevennine <span>Holdings</span></a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#approach">Our Approach</a>
+      <a class="nav-cta" href="#contact">Contact Us ↗</a>
     </div>
-  </footer>
+  </nav>
+</header>
 
-  <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="eyebrow">Electrical · Industrial · Manufacturing</div>
+      <h1>Connecting Industry to the Products That Move It Forward.</h1>
+      <p>We are specialized in exporting the most complete line of electrical, industrial, and manufacturing products and shipping worldwide test.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#contact">Discuss Your Requirements <span>→</span></a>
+        <a class="btn btn-outline" href="#services">Explore Our Services</a>
+      </div>
+      <div class="hero-note">Product sourcing · Business enquiries · Worldwide shipping</div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=85"
+          alt="Engineering professionals working with industrial equipment"
+          loading="lazy">
+        <div class="image-caption">Supporting industrial and manufacturing requirements</div>
+      </div>
+      <div class="about-copy">
+        <div class="eyebrow">About Sevennine Holdings</div>
+        <h2>A dependable partner for your supply requirements.</h2>
+        <p>Sevennine Holdings focuses on electrical, industrial and manufacturing product requirements for businesses.</p>
+        <p>We aim to make sourcing straightforward through clear communication, a customer-focused approach and support tailored to each enquiry.</p>
+        <p>Whether you are exploring product options or discussing an export requirement, our team welcomes the opportunity to understand your needs.</p>
+        <a class="btn btn-dark" href="#contact">Connect With Our Team →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">What We Do</div>
+        <h2>Our Areas of Expertise</h2>
+        <p>Explore our core product areas. Share your requirements with us to discuss suitable options for your business.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="service-image">
+            <img
+              src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=85"
+              alt="Electronic circuit board and electrical components"
+              loading="lazy">
+          </div>
+          <div class="service-content">
+            <div class="service-number">01 — ELECTRICAL</div>
+            <h3>Electrical Products</h3>
+            <p>Product sourcing support for electrical components, equipment and related business applications.</p>
+            <a class="service-link" href="#contact">Enquire about products <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-image">
+            <img
+              src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=85"
+              alt="Industrial machinery and technical equipment"
+              loading="lazy">
+          </div>
+          <div class="service-content">
+            <div class="service-number">02 — INDUSTRIAL</div>
+            <h3>Industrial Supplies</h3>
+            <p>Supply support for industrial products and equipment used in business and operational environments.</p>
+            <a class="service-link" href="#contact">Discuss your requirements <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-image">
+            <img
+              src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1000&q=85"
+              alt="Manufacturing machinery inside a production facility"
+              loading="lazy">
+          </div>
+          <div class="service-content">
+            <div class="service-number">03 — MANUFACTURING</div>
+            <h3>Manufacturing Products</h3>
+            <p>Sourcing support for manufacturing equipment, components and related production needs.</p>
+            <a class="service-link" href="#contact">Send a product enquiry <span>→</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="approach" id="approach">
+    <div class="container">
+      <div class="eyebrow">Our Approach</div>
+      <h2>Business built around your requirements.</h2>
+      <p>We value clear communication, practical sourcing support and professional relationships. Tell us what you are looking for, and our team can learn more about your requirements.</p>
+      <div class="approach-grid">
+        <div class="approach-item">
+          <strong>01 / UNDERSTAND</strong>
+          <span>We listen to your product needs and business requirements.</span>
+        </div>
+        <div class="approach-item">
+          <strong>02 / SOURCE</strong>
+          <span>We discuss relevant product options based on your enquiry.</span>
+        </div>
+        <div class="approach-item">
+          <strong>03 / CONNECT</strong>
+          <span>We communicate next steps for your sourcing or export enquiry.</span>
+        </div>
+      </div>
+      <div style="margin-top:34px">
+        <a class="btn" href="#contact">Start an Enquiry →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-copy">
+        <div class="eyebrow">Contact Us</div>
+        <h2>Let's talk about what your business needs.</h2>
+        <p>Have a product enquiry or need more information about our areas of focus? Complete the form and share a few details so our team can understand how to assist.</p>
+
+        <div class="contact-points">
+          <div class="contact-point">
+            <div class="contact-icon">↗</div>
+            <div>
+              <strong>Product Enquiries</strong>
+              <span>Tell us the products or equipment you are looking for.</span>
+            </div>
+          </div>
+          <div class="contact-point">
+            <div class="contact-icon">◎</div>
+            <div>
+              <strong>Business Communication</strong>
+              <span>Share your company and preferred contact details.</span>
+            </div>
+          </div>
+          <div class="contact-point">
+            <div class="contact-icon">◇</div>
+            <div>
+              <strong>Export & Shipping</strong>
+              <span>Include your destination and delivery requirements, if known.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3>Send an Enquiry</h3>
+        <p class="form-intro">Complete the fields below. Required fields are marked with *.</p>
+
+        <form action="https://formsubmit.co/sale@sevennineholdings.com" method="POST">
+          <input type="hidden" name="_subject" value="New website enquiry - Sevennine Holdings">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_replyto" value="">
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Full Name *</label>
+              <input id="name" name="Full Name" type="text" placeholder="Your full name" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="company">Company Name</label>
+              <input id="company" name="Company Name" type="text" placeholder="Your company" autocomplete="organization">
+            </div>
+
+            <div class="field">
+              <label for="email">Business Email *</label>
+              <input id="email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="Phone Number" type="tel" placeholder="Include country code" autocomplete="tel">
+            </div>
+
+            <div class="field full">
+              <label for="interest">Product / Subject of Interest</label>
+              <select id="interest" name="Product or Subject of Interest">
+                <option value="">Choose a category</option>
+                <option>Electrical Products</option>
+                <option>Industrial Supplies</option>
+                <option>Manufacturing Products</option>
+                <option>Export and Shipping</option>
+                <option>Other Enquiry</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="message">How Can We Help? *</label>
+              <textarea id="message" name="Message" placeholder="Describe the products, quantities or support you need..." required></textarea>
+            </div>
+          </div>
+
+          <button class="btn btn-dark" type="submit">Submit Enquiry <span>→</span></button>
+          <p class="form-small">Your information will be used to respond to your enquiry.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <a class="footer-brand" href="#home">Sevennine <span>Holdings</span></a>
+    <span>Electrical · Industrial · Manufacturing</span>
+    <span>© <span id="year"></span> Sevennine Holdings. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
